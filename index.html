@@ -47,7 +47,9 @@ formEl.addEventListener('submit', function(event) {
   var headers = new Headers();
   // Tell the server we want JSON back
   headers.set('Accept', 'application/json');
+  headers.set('Access-Control-Allow-Origin', '*');
 
+  
   // 1.2 Form Data
   // We need to properly format the submitted fields.
   // Here we will use the same format the browser submits POST forms.
@@ -67,9 +69,7 @@ formEl.addEventListener('submit', function(event) {
   var fetchOptions = {
     method: 'GET',
     mode: 'cors',
-    headers: {
-      'Access-Control-Allow-Origin':'*'
-      }
+    headers
     //body: formData
   };
   
