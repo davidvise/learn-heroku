@@ -25,7 +25,7 @@ formEl.addEventListener('submit', function(event) {
   // ================================
   var url = 'http://unitifm.au-s1.cloudhub.io/workorder/retrieve/CHUBB-FMC?wonum=2361105';
   var fetchOptions = {
-    method: 'POST',
+    method: 'GET',
     headers,
     body: formData
   };
