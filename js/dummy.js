@@ -32,6 +32,14 @@ formEl.addEventListener('submit', function(event) {
   
   var responsePromise = fetch(url, fetchOptions);
   
+  fetch('http://unitifm.au-s1.cloudhub.io/workorder/retrieve/CHUBB-FMC?wonum=2361105')
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(myJson) {
+    console.log(JSON.stringify(myJson));
+  });
+  
   // 3. Use the response
   // ================================
   responsePromise
