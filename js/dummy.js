@@ -21,6 +21,8 @@ formEl.addEventListener('submit', function(event) {
   // This is for the purpose of this demo using jsFiddle AJAX Request endpoint
   formData.append('json', JSON.stringify({example: 'return value'}));
 
+  alert("I am an alert box!");
+  
   // 2. Make the request
   // ================================
   var url = 'http://unitifm.au-s1.cloudhub.io/workorder/retrieve/CHUBB-FMC?wonum=2361105';
