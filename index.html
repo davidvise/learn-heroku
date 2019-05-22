@@ -72,7 +72,7 @@ formEl.addEventListener('submit', function(event) {
   var url = 'http://unitifm.au-s1.cloudhub.io/workorder/retrieve/CHUBB-FMC?wonum=2361105';
   var fetchOptions = {
     method: 'GET',
-    mode: 'no-cors',
+    mode: 'cors',
     headers
     //body: formData
   };
@@ -105,7 +105,7 @@ formEl.addEventListener('submit', function(event) {
 <body>
     <form method="GET" action="" id="form">
   <p>
-    5.Something: <input type="text" name="something" />
+    6.Something: <input type="text" name="something" />
   </p>
   
   <p>
