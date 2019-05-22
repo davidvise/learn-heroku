@@ -118,23 +118,23 @@
                         example: 'return value'
                     }));
                     var won = document.getElementById('something').value;
-                    var delayreq = '<?xml version='1.0' encoding='UTF-8'?>
-<ns0:UpdateFMHUBWOUPDATE xmlns:ns0="http://www.ibm.com/maximo" transLanguage="EN" baseLanguage="EN">
-  <ns0:FMHUBWOUPDATESet>
-    <ns0:WORKORDER action="Change" transLanguage="EN">
-      <ns0:SITEID>SKSA</ns0:SITEID>
-      <ns0:STATUS>INPRG</ns0:STATUS>
-      <ns0:WONUM>2361105</ns0:WONUM>
-      <ns0:MATUSETRANS action="add">
-        <ns0:DESCRIPTION>Work Order</ns0:DESCRIPTION>
-      </ns0:MATUSETRANS>
-      <ns0:WORKLOG action="add">
-        <ns0:CLASS>WORKORDER</ns0:CLASS>
-      </ns0:WORKLOG>
-      <ns0:SACLREQFOLLOWUP>1</ns0:SACLREQFOLLOWUP>
-    </ns0:WORKORDER>
-  </ns0:FMHUBWOUPDATESet>
-</ns0:UpdateFMHUBWOUPDATE>'
+                    var delayreq = '&lt;?xml version=&apos;1.0&apos; encoding=&apos;UTF-8&apos;?&gt;
+&lt;ns0:UpdateFMHUBWOUPDATE xmlns:ns0=&quot;http://www.ibm.com/maximo&quot; transLanguage=&quot;EN&quot; baseLanguage=&quot;EN&quot;&gt;
+  &lt;ns0:FMHUBWOUPDATESet&gt;
+    &lt;ns0:WORKORDER action=&quot;Change&quot; transLanguage=&quot;EN&quot;&gt;
+      &lt;ns0:SITEID&gt;SKSA&lt;/ns0:SITEID&gt;
+      &lt;ns0:STATUS&gt;INPRG&lt;/ns0:STATUS&gt;
+      &lt;ns0:WONUM&gt;2361105&lt;/ns0:WONUM&gt;
+      &lt;ns0:MATUSETRANS action=&quot;add&quot;&gt;
+        &lt;ns0:DESCRIPTION&gt;Work Order&lt;/ns0:DESCRIPTION&gt;
+      &lt;/ns0:MATUSETRANS&gt;
+      &lt;ns0:WORKLOG action=&quot;add&quot;&gt;
+        &lt;ns0:CLASS&gt;WORKORDER&lt;/ns0:CLASS&gt;
+      &lt;/ns0:WORKLOG&gt;
+      &lt;ns0:SACLREQFOLLOWUP&gt;1&lt;/ns0:SACLREQFOLLOWUP&gt;
+    &lt;/ns0:WORKORDER&gt;
+  &lt;/ns0:FMHUBWOUPDATESet&gt;
+&lt;/ns0:UpdateFMHUBWOUPDATE&gt;'
 
                     // 2. Make the request
                     // ================================
