@@ -48,6 +48,10 @@ formEl.addEventListener('submit', function(event) {
   // Tell the server we want JSON back
   headers.set('Accept', 'application/json');
   headers.set('Access-Control-Allow-Origin', '*');
+  
+   headers.set('Access-Control-Allow-Credentials', true);
+   headers.set('Access-Control-Allow-Methods', 'GET');
+   headers.set('Access-Control-Allow-Headers', 'application/json');
 
   
   // 1.2 Form Data
