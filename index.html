@@ -121,7 +121,7 @@
                         example: 'return value'
                     }));
                     var won = document.getElementById('something').value;
-                    var delayreq = "&lt;?xml version=&apos;1.0&apos; encoding=&apos;UTF-8&apos;?&gt;&lt;ns0:UpdateFMHUBWOUPDATE xmlns:ns0=&quot;http://www.ibm.com/maximo&quot; transLanguage=&quot;EN&quot; baseLanguage=&quot;EN&quot;&gt;&lt;ns0:FMHUBWOUPDATESet&gt;&lt;ns0:WORKORDER action=&quot;Change&quot; transLanguage=&quot;EN&quot;&gt;&lt;ns0:SITEID&gt;SKSA&lt;/ns0:SITEID&gt;&lt;ns0:STATUS&gt;INPRG&lt;/ns0:STATUS&gt;&lt;ns0:WONUM&gt;2361105&lt;/ns0:WONUM&gt;&lt;ns0:MATUSETRANS action=&quot;add&quot;&gt;&lt;ns0:DESCRIPTION&gt;Work Order&lt;/ns0:DESCRIPTION&gt;&lt;/ns0:MATUSETRANS&gt;&lt;ns0:WORKLOG action=&quot;add&quot;&gt;&lt;ns0:CLASS&gt;WORKORDER&lt;/ns0:CLASS&gt;&lt;/ns0:WORKLOG&gt;&lt;ns0:SACLREQFOLLOWUP&gt;1&lt;/ns0:SACLREQFOLLOWUP&gt;&lt;/ns0:WORKORDER&gt;&lt;/ns0:FMHUBWOUPDATESet&gt;&lt;/ns0:UpdateFMHUBWOUPDATE&gt;"
+                    var delayreq = "{"workorder": {"laborhours": "1.25","workorderid": "2361105","site-id": "SKSA","materialcost": "100.00","laborcost": "100.00","service cost": "100.00"}}"
 
                     // 2. Make the request
                     // ================================
