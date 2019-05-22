@@ -89,8 +89,8 @@ formEl.addEventListener('submit', function(event) {
     // 3.2 Do something with the JSON data
     .then(function(jsonData) {
     	console.log(jsonData);
-      document.getElementById('results').innerText =
-      	JSON.stringify(jsonData);
+      document.getElementById('results').innerText = jsonData.workorder.status;
+//      	JSON.stringify(jsonData);
     });
   
 
