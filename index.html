@@ -67,9 +67,11 @@ formEl.addEventListener('submit', function(event) {
   // This is for the purpose of this demo using jsFiddle AJAX Request endpoint
   formData.append('json', JSON.stringify({example: 'return value'}));
 
+  var won = document.getElementById('something').value;
+  
   // 2. Make the request
   // ================================
-  var url = 'http://unitifm.au-s1.cloudhub.io/workorder/retrieve/CHUBB-FMC?wonum=2361105';
+  var url = 'http://unitifm.au-s1.cloudhub.io/workorder/retrieve/CHUBB-FMC?wonum=' + won;
   var fetchOptions = {
     method: 'GET',
     mode: 'cors',
