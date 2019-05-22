@@ -32,8 +32,9 @@
         window.onload = function() {
 
                 var formEl = document.getElementById('form');
-                alert("dddd");
+                
                 formEl.addEventListener('submit', function(event) {
+                    alert("submit");
                     // 1. Setup the request
                     // ================================
                     // 1.1 Headers
@@ -92,6 +93,7 @@
                 });
             
             formEl.addEventListener('delay', function(event) {
+                    alert("delay");
                     // 1. Setup the request
                     // ================================
                     // 1.1 Headers
