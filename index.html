@@ -33,7 +33,7 @@
 
                 var formEl = document.getElementById('form');
                 
-                formEl.addEventListener('submit', function(event) {
+                function submitFunction2(i) {
                     alert("submit");
                     // 1. Setup the request
                     // ================================
@@ -90,7 +90,7 @@
                         });
 
                     event.preventDefault();
-                });
+                };
             }
         
         function submitFunction(i) {
