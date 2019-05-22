@@ -1,129 +1,123 @@
-
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Use the Fetch API  to submit a form</title>
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <meta name="robots" content="noindex, nofollow">
-  <meta name="googlebot" content="noindex, nofollow">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Use the Fetch API to submit a form</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-  <script
-    type="text/javascript"
-    src="/js/lib/dummy.js"
-    
-  ></script>
+    <script type="text/javascript" src="/js/lib/dummy.js"></script>
 
     <link rel="stylesheet" type="text/css" href="/css/result-light.css">
 
-      <script type="text/javascript" src="https://cdn.polyfill.io/v1/polyfill.min.js?features=fetch,Promise&amp;gated=1"></script>
+    <script type="text/javascript" src="https://cdn.polyfill.io/v1/polyfill.min.js?features=fetch,Promise&amp;gated=1"></script>
 
-  <style id="compiled-css" type="text/css">
-      body {
-  padding: 10px;
-  font-family: sans-serif;
-  font-size: 18px;
-  color: #fff;
-  background-color: #262E3D;
-}
-  </style>
+    <style id="compiled-css" type="text/css">
+        body {
+            padding: 10px;
+            font-family: sans-serif;
+            font-size: 18px;
+            color: #fff;
+            background-color: #262E3D;
+        }
+    </style>
 
+    <!-- TODO: Missing CoffeeScript 2 -->
 
-  <!-- TODO: Missing CoffeeScript 2 -->
+    <script type="text/javascript">
+        //<![CDATA[
+        window.onload = function() {
 
-  <script type="text/javascript">
-//<![CDATA[
+                var formEl = document.getElementById('form');
+                formEl.addEventListener('submit', function(event) {
+                    // 1. Setup the request
+                    // ================================
+                    // 1.1 Headers
+                    var headers = new Headers();
+                    // Tell the server we want JSON back
+                    headers.set('Accept', 'application/json');
+                    headers.set('Access-Control-Allow-Origin', '*');
 
-    window.onload=function(){
-      
-var formEl = document.getElementById('form');
+                    headers.set('Access-Control-Allow-Credentials', true);
+                    headers.set('Access-Control-Allow-Methods', 'GET');
+                    headers.set('Access-Control-Allow-Headers', 'application/json');
 
-formEl.addEventListener('submit', function(event) {
-  // 1. Setup the request
-  // ================================
-  // 1.1 Headers
-  var headers = new Headers();
-  // Tell the server we want JSON back
-  headers.set('Accept', 'application/json');
-  headers.set('Access-Control-Allow-Origin', '*');
-  
-   headers.set('Access-Control-Allow-Credentials', true);
-   headers.set('Access-Control-Allow-Methods', 'GET');
-   headers.set('Access-Control-Allow-Headers', 'application/json');
+                    // 1.2 Form Data
+                    // We need to properly format the submitted fields.
+                    // Here we will use the same format the browser submits POST forms.
+                    // You could use a different format, depending on your server, such
+                    // as JSON or XML.
+                    var formData = new FormData();
+                    for (var i = 0; i < formEl.length; ++i) {
+                        formData.append(formEl[i].name, formEl[i].value);
+                    }
 
-  
-  // 1.2 Form Data
-  // We need to properly format the submitted fields.
-  // Here we will use the same format the browser submits POST forms.
-  // You could use a different format, depending on your server, such
-  // as JSON or XML.
-  var formData = new FormData();
-  for (var i = 0; i < formEl.length; ++i) {
-    formData.append(formEl[i].name, formEl[i].value);
-  }
-  
-  // This is for the purpose of this demo using jsFiddle AJAX Request endpoint
-  formData.append('json', JSON.stringify({example: 'return value'}));
+                    // This is for the purpose of this demo using jsFiddle AJAX Request endpoint
+                    formData.append('json', JSON.stringify({
+                        example: 'return value'
+                    }));
+                    var won = document.getElementById('something').value;
 
-  var won = document.getElementById('something').value;
-  
-  // 2. Make the request
-  // ================================
-  var url = 'http://unitifm.au-s1.cloudhub.io/workorder/retrieve/CHUBB-FMC?wonum=' + won;
-  var fetchOptions = {
-    method: 'GET',
-    mode: 'cors',
-    headers
-    //body: formData
-  };
-  
-  var responsePromise = fetch(url, fetchOptions);
-  
-  // 3. Use the response
-  // ================================
-  responsePromise
-  	// 3.1 Convert the response into JSON-JS object.
-    .then(function(response) {
-      return response.json();
-    })
-    // 3.2 Do something with the JSON data
-    .then(function(jsonData) {
-    	console.log(jsonData);
-      document.getElementById('results').innerText = 'Status: ' + jsonData.workorder.status;
-//      	JSON.stringify(jsonData);
-    });
-  
+                    // 2. Make the request
+                    // ================================
+                    var url = 'http://unitifm.au-s1.cloudhub.io/workorder/retrieve/CHUBB-FMC?wonum=' + won;
+                    var fetchOptions = {
+                        method: 'GET',
+                        mode: 'cors',
+                        headers
+                        //body: formData
+                    };
 
-  event.preventDefault();
-});
+                    var responsePromise = fetch(url, fetchOptions);
 
-    }
+                    // 3. Use the response
+                    // ================================
+                    responsePromise
+                    // 3.1 Convert the response into JSON-JS object.
+                        .then(function(response) {
+                            return response.json();
+                        })
+                        // 3.2 Do something with the JSON data
+                        .then(function(jsonData) {
+                            console.log(jsonData);
+                            document.getElementById('results').innerText = 'Status: ' + jsonData.workorder.status;
+                            //      	JSON.stringify(jsonData);
+                        });
 
-//]]></script>
+                    event.preventDefault();
+                });
+            }
+            //]]>
+    </script>
 
 </head>
-  
+
 <form id="form" action="" method="GET">
-<p><img src="https://images.ctfassets.net/v228i5y5k0x4/4oLOVw1iLCaOsuGeGCggQw/ef0f9861634d4d94f9a9be51b812fdd0/sydair-logo.png" alt="" width="284" height="64" /></p>
-<p>Work Order Number: <input id="something" name="something" type="text" /></p>
-<p><strong><button style="height: 25px; width: 100px;" type="submit">Query</button></strong> <button style="height: 25px; width: 100px;" type="submit">Delay</button> <button style="height: 25px; width: 100px;" type="submit">Complete</button></p>
+    <p><img src="https://images.ctfassets.net/v228i5y5k0x4/4oLOVw1iLCaOsuGeGCggQw/ef0f9861634d4d94f9a9be51b812fdd0/sydair-logo.png" alt="" width="284" height="64" /></p>
+    <p>Work Order Number:
+        <input id="something" name="something" type="text" />
+    </p>
+    <p><strong><button style="height: 25px; width: 100px;" type="submit">Query</button></strong>
+        <button style="height: 25px; width: 100px;" type="submit">Delay</button>
+        <button style="height: 25px; width: 100px;" type="submit">Complete</button>
+    </p>
 </form>
 <h1 id="results"><span style="color: #00ccff;"><strong></strong></span></h1>
 
-  
-  <script>
+<script>
     // tell the embed parent frame the height of the content
-    if (window.parent && window.parent.parent){
-      window.parent.parent.postMessage(["resultsFrame", {
-        height: document.body.getBoundingClientRect().height,
-        slug: "rxeuaatw"
-      }], "*")
+    if (window.parent && window.parent.parent) {
+        window.parent.parent.postMessage(["resultsFrame", {
+            height: document.body.getBoundingClientRect().height,
+            slug: "rxeuaatw"
+        }], "*")
     }
-
     // always overwrite window.name, in case users try to set it manually
     window.name = "result"
-  </script>
+</script>
 </body>
+
 </html>
