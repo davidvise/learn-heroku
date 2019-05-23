@@ -32,7 +32,6 @@
        
                 
                 function querywo() {
-                    alert("submit");
                     // 1. Setup the request
                     // ================================
                     // 1.1 Headers
@@ -44,23 +43,9 @@
                     headers.set('Access-Control-Allow-Credentials', true);
                     headers.set('Access-Control-Allow-Methods', 'GET');
                     headers.set('Access-Control-Allow-Headers', 'application/json');
-
-                    // 1.2 Form Data
-                    // We need to properly format the submitted fields.
-                    // Here we will use the same format the browser submits POST forms.
-                    // You could use a different format, depending on your server, such
-                    // as JSON or XML.
-                    alert("submit2");
-                    
                    
-                    alert("submit3");
-
-                    // This is for the purpose of this demo using jsFiddle AJAX Request endpoint
-                    
                     var won = document.getElementById('something').value;
-                    
-                    alert("submit4");
-
+                
                     // 2. Make the request
                     // ================================
                     var url = 'http://unitifm.au-s1.cloudhub.io/workorder/retrieve/CHUBB-FMC?wonum=' + won;
@@ -92,7 +77,6 @@
           
         
         function delaywo() {
-                    alert("delay");
                     // 1. Setup the request
                     // ================================
                     // 1.1 Headers
@@ -148,7 +132,6 @@
         
                
         function completewo() {
-                    alert("delay");
                     // 1. Setup the request
                     // ================================
                     // 1.1 Headers
@@ -204,7 +187,6 @@
         
                      
         function inprogresswo() {
-                    alert("delay");
                     // 1. Setup the request
                     // ================================
                     // 1.1 Headers
@@ -231,7 +213,7 @@
 
                     // 2. Make the request
                     // ================================
-                    var url = 'http://unitifm.au-s1.cloudhub.io/workorder/update/SKSA/' + won + '?status=COMP';
+                    var url = 'http://unitifm.au-s1.cloudhub.io/workorder/update/SKSA/' + won + '?status=INPRG';
                     var fetchOptions = {
                         method: 'PUT',
                         mode: 'cors',
@@ -269,10 +251,10 @@
     <p>Work Order Number:
         <input id="something" name="something" type="text" />
     </p>
-    <p><strong><button style="height: 25px; width: 100px;" type="submit" onClick="querywo()">Query</button></strong>
-        <button style="height: 25px; width: 100px;" type="submit" onClick="delaywo()">Delay</button>
-        <button style="height: 25px; width: 100px;" type="submit" onClick="completewo()">Complete</button>
-        <button style="height: 25px; width: 100px;" type="submit" onClick="inprogresswo()">Inprogress</button>
+    <p><strong><button style="height: 25px; width: 80px;" type="submit" onClick="querywo()">Query</button></strong>
+        <button style="height: 25px; width: 80px;" type="submit" onClick="delaywo()">Delay</button>
+        <button style="height: 25px; width: 80px;" type="submit" onClick="completewo()">Complete</button>
+        <button style="height: 25px; width: 80px;" type="submit" onClick="inprogresswo()">Inprogress</button>
     </p>
 </form>
 <h1 id="results"><span style="color: #00ccff;"><strong></strong></span></h1>
