@@ -99,8 +99,9 @@
                     var headers = new Headers();
                     // Tell the server we want JSON back
                     headers.set('Accept', 'application/json');
+                    headers.set('Content-Type','application/json; charset=UTF-8');
+                    
                     headers.set('Access-Control-Allow-Origin', '*');
-
                     headers.set('Access-Control-Allow-Credentials', true);
                     headers.set('Access-Control-Allow-Methods', 'PUT');
                     headers.set('Access-Control-Allow-Headers', 'application/json');
