@@ -51,17 +51,12 @@
                     // You could use a different format, depending on your server, such
                     // as JSON or XML.
                     alert("submit2");
-                    var formData = new FormData();
-                    for (var i = 0; i < formEl.length; ++i) {
-                        formData.append(formEl[i].name, formEl[i].value);
-                    }
                     
+                   
                     alert("submit3");
 
                     // This is for the purpose of this demo using jsFiddle AJAX Request endpoint
-                    formData.append('json', JSON.stringify({
-                        example: 'return value'
-                    }));
+                    
                     var won = document.getElementById('something').value;
                     
                     alert("submit4");
