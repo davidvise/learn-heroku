@@ -68,7 +68,8 @@
                         // 3.2 Do something with the JSON data
                         .then(function(jsonData) {
                             console.log(jsonData);
-                            document.getElementById('results').innerText = 'Status: ' + jsonData.workorder.result;
+                            document.getElementById('results').innerText = 'Status: ' + jsonData.workorder.status;
+                            document.getElementById('message').innerText = 'Status: ' + jsonData.workorder.result;
                             //      	JSON.stringify(jsonData);
                         });
 
@@ -258,6 +259,7 @@
     </p>
 </form>
 <h1 id="results"><span style="color: #00ccff;"><strong></strong></span></h1>
+<h2 id="message"><span style="color: #00ccff;"><strong></strong></span></h2>
 
 <script>
     // tell the embed parent frame the height of the content
