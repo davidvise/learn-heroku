@@ -104,7 +104,7 @@
 
                     // 2. Make the request
                     // ================================
-                    var url = 'http://unitifm.au-s1.cloudhub.io/workorder/update/SKSA/' + won + '?status=WSCH';
+                    var url = 'http://unitifm-maintenance.au-s1.cloudhub.io/api/update/CHUBB-FMC/' + won + '?status=WSCH';
                     var fetchOptions = {
                         method: 'PUT',
                         mode: 'cors',
@@ -124,7 +124,7 @@
                         // 3.2 Do something with the JSON data
                         .then(function(jsonData) {
                             console.log(jsonData);
-                            //document.getElementById('results').innerText = 'Status: ' + jsonData.workorder.status;
+                            document.getElementById('message').innerText = 'Status: ' + jsonData.workorder.result;
                             //      	JSON.stringify(jsonData);
                         });
 
@@ -253,9 +253,11 @@
         <input id="something" name="something" type="text" />
     </p>
     <p><strong><button style="height: 25px; width: 80px;" type="submit" onClick="querywo()">Query</button></strong>
-        <button style="height: 25px; width: 80px;" type="submit" onClick="delaywo()">Delay</button>
-        <button style="height: 25px; width: 80px;" type="submit" onClick="completewo()">Complete</button>
-        <button style="height: 25px; width: 80px;" type="submit" onClick="inprogresswo()">Inprogress</button>
+        <button style="height: 25px; width: 80px;" type="submit" onClick="delaywo()">WSCH</button>
+        <button style="height: 25px; width: 80px;" type="submit" onClick="waitwo()">WMATL</button>
+        <button style="height: 25px; width: 80px;" type="submit" onClick="completewo()">COMP</button>
+        <button style="height: 25px; width: 80px;" type="submit" onClick="wpcondwo()">WPCOND</button>
+        <button style="height: 25px; width: 80px;" type="submit" onClick="inprogresswo()">INPRG</button>
     </p>
 </form>
 <h1 id="results"><span style="color: #00ccff;"><strong></strong></span></h1>
