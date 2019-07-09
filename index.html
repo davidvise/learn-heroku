@@ -69,7 +69,7 @@
                         .then(function(jsonData) {
                             console.log(jsonData);
                             document.getElementById('results').innerText = 'Status: ' + jsonData.workorder.status;
-                            document.getElementById('message').innerText = 'Status: ' + jsonData.workorder.result;
+                            document.getElementById('message').innerText = jsonData.workorder.result;
                             //      	JSON.stringify(jsonData);
                         });
 
@@ -249,7 +249,7 @@
 
 <form id="form" action="" method="GET">
     <p><img src="https://images.ctfassets.net/v228i5y5k0x4/4oLOVw1iLCaOsuGeGCggQw/ef0f9861634d4d94f9a9be51b812fdd0/sydair-logo.png" alt="" width="284" height="64" /></p>
-    <p>xWork Order Number:
+    <p>Work Order Number:
         <input id="something" name="something" type="text" />
     </p>
     <p><strong><button style="height: 25px; width: 80px;" type="submit" onClick="querywo()">Query</button></strong>
@@ -259,7 +259,7 @@
     </p>
 </form>
 <h1 id="results"><span style="color: #00ccff;"><strong></strong></span></h1>
-<h2 id="message"><span style="color: #00ccff;"><strong></strong></span></h2>
+<h2 id="message"><span style="color: #00ccff;"></span></h2>
 
 <script>
     // tell the embed parent frame the height of the content
