@@ -159,7 +159,7 @@
 
                     // 2. Make the request
                     // ================================
-                    var url = 'http://unitifm.au-s1.cloudhub.io/workorder/update/SKSA/' + won + '?status=COMP';
+                    var url = 'http://unitifm-maintenance.au-s1.cloudhub.io/api/update/CHUBB-FMC/' + won + '?status=COMP';
                     var fetchOptions = {
                         method: 'PUT',
                         mode: 'cors',
@@ -179,7 +179,7 @@
                         // 3.2 Do something with the JSON data
                         .then(function(jsonData) {
                             console.log(jsonData);
-                            //document.getElementById('results').innerText = 'Status: ' + jsonData.workorder.status;
+                              document.getElementById('message').innerText = 'Status: ' + jsonData.result;
                             //      	JSON.stringify(jsonData);
                         });
 
@@ -214,7 +214,7 @@
 
                     // 2. Make the request
                     // ================================
-                    var url = 'http://unitifm.au-s1.cloudhub.io/workorder/update/SKSA/' + won + '?status=INPRG';
+                    var url = 'http://unitifm-maintenance.au-s1.cloudhub.io/api/update/CHUBB-FMC/' + won + '?status=INPRG';
                     var fetchOptions = {
                         method: 'PUT',
                         mode: 'cors',
@@ -234,14 +234,123 @@
                         // 3.2 Do something with the JSON data
                         .then(function(jsonData) {
                             console.log(jsonData);
-                            //document.getElementById('results').innerText = 'Status: ' + jsonData.workorder.status;
+                             document.getElementById('message').innerText = 'Status: ' + jsonData.result;
+                           //      	JSON.stringify(jsonData);
+                        });
+
+                    event.preventDefault();
+                };
+        
+                function wpcondwo() {
+                    // 1. Setup the request
+                    // ================================
+                    // 1.1 Headers
+                    var headers = new Headers();
+                    // Tell the server we want JSON back
+                    headers.set('Accept', 'application/json');
+                    headers.set('Content-Type','application/json; charset=UTF-8');
+                    
+                    headers.set('Access-Control-Allow-Origin', '*');
+                    headers.set('Access-Control-Allow-Credentials', true);
+                    headers.set('Access-Control-Allow-Methods', 'PUT');
+                    headers.set('Access-Control-Allow-Headers', 'application/json');
+
+                    // 1.2 Form Data
+                    // We need to properly format the submitted fields.
+                    // Here we will use the same format the browser submits POST forms.
+                    // You could use a different format, depending on your server, such
+                    // as JSON or XML.
+                    
+                    // This is for the purpose of this demo using jsFiddle AJAX Request endpoint
+                    
+                    var won = document.getElementById('something').value;
+                    var delayreq = "{\"workorder\": {\"laborhours\": \"1.25\",\"workorderid\": \"2361105\",\"site-id\": \"SKSA\",\"materialcost\": \"100.00\",\"laborcost\": \"100.00\",\"service cost\": \"100.00\"}}"
+
+                    // 2. Make the request
+                    // ================================
+                    var url = 'http://unitifm-maintenance.au-s1.cloudhub.io/api/update/CHUBB-FMC/' + won + '?status=WPCOND';
+                    var fetchOptions = {
+                        method: 'PUT',
+                        mode: 'cors',
+                        headers,
+                        body: delayreq
+                    };
+
+                    var responsePromise = fetch(url, fetchOptions);
+
+                    // 3. Use the response
+                    // ================================
+                    responsePromise
+                    // 3.1 Convert the response into JSON-JS object.
+                        .then(function(response) {
+                            return response.json();
+                        })
+                        // 3.2 Do something with the JSON data
+                        .then(function(jsonData) {
+                            console.log(jsonData);
+                            document.getElementById('message').innerText = 'Status: ' + jsonData.result;
                             //      	JSON.stringify(jsonData);
                         });
 
                     event.preventDefault();
                 };
         
+                      function waitwo() {
+                    // 1. Setup the request
+                    // ================================
+                    // 1.1 Headers
+                    var headers = new Headers();
+                    // Tell the server we want JSON back
+                    headers.set('Accept', 'application/json');
+                    headers.set('Content-Type','application/json; charset=UTF-8');
+                    
+                    headers.set('Access-Control-Allow-Origin', '*');
+                    headers.set('Access-Control-Allow-Credentials', true);
+                    headers.set('Access-Control-Allow-Methods', 'PUT');
+                    headers.set('Access-Control-Allow-Headers', 'application/json');
+
+                    // 1.2 Form Data
+                    // We need to properly format the submitted fields.
+                    // Here we will use the same format the browser submits POST forms.
+                    // You could use a different format, depending on your server, such
+                    // as JSON or XML.
+                    
+                    // This is for the purpose of this demo using jsFiddle AJAX Request endpoint
+                    
+                    var won = document.getElementById('something').value;
+                    var delayreq = "{\"workorder\": {\"laborhours\": \"1.25\",\"workorderid\": \"2361105\",\"site-id\": \"SKSA\",\"materialcost\": \"100.00\",\"laborcost\": \"100.00\",\"service cost\": \"100.00\"}}"
+
+                    // 2. Make the request
+                    // ================================
+                    var url = 'http://unitifm-maintenance.au-s1.cloudhub.io/api/update/CHUBB-FMC/' + won + '?status=WMATL';
+                    var fetchOptions = {
+                        method: 'PUT',
+                        mode: 'cors',
+                        headers,
+                        body: delayreq
+                    };
+
+                    var responsePromise = fetch(url, fetchOptions);
+
+                    // 3. Use the response
+                    // ================================
+                    responsePromise
+                    // 3.1 Convert the response into JSON-JS object.
+                        .then(function(response) {
+                            return response.json();
+                        })
+                        // 3.2 Do something with the JSON data
+                        .then(function(jsonData) {
+                            console.log(jsonData);
+                            document.getElementById('message').innerText = 'Status: ' + jsonData.result;
+                            //      	JSON.stringify(jsonData);
+                        });
+
+                    event.preventDefault();
+                };
+    
         
+   
             //]]>
     </script>
 
